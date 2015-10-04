@@ -1,0 +1,60 @@
+<div id="google-map" data-lat="<%= @spot.lat %>" data-lng="<%= @spot.lng %>" data-title="<%= @spot.name %>"></div>
+
+<div class="page-header">
+  <h1>
+    <strong><%= @spot.name %></strong>
+    <% if current_user == @spot.user %>
+      <%= link_to 'Edit', edit_spot_path(@spot), :class => 'btn btn-default' %>
+    <% end %><br>
+    <small><%= @spot.address %> <%= @spot.city %>, <%= @spot.state %>. <%= @spot.country %></small>
+  </h1>
+</div>
+
+<p class="lead"><%= @spot.description %></p>
+
+<div class="row">
+  <div class="col-lg-6">
+    <p><strong>Coordinates:</strong><br><code><%= @spot.lat %>, <%= @spot.lng %></code></p>
+    <p><strong>Aliases:</strong><br><%= @spot.aliases %></p>
+    <p><strong>Wave:</strong><br><%= @spot.wave_direction.to_series %> <%= @spot.bottom.to_series %> bottom <%= @spot.kind.to_series %> break</p>
+    <p><strong>Consistency:</strong><br><%= @spot.consistency.to_series %></p>
+    <p><strong>Quality:</strong><br><%= @spot.quality.to_series %></p>
+    <p><strong>Crowd:</strong><br><%= @spot.crowd.to_series %></p>
+    <p><strong>Water Quality:</strong><br><%= @spot.water_quality.to_series %></p>
+    <p><strong>Access:</strong><br><%= @spot.access.to_series %></p>
+  </div>
+
+  <div class="col-lg-6">
+    <p><strong>Swell Direction:</strong><br><%= @spot.swell_direction.to_series %></p>
+    <p><strong>Tide:</strong><br><%= @spot.tide.to_series %> tide <%= @spot.tide_direction.to_series %></p>
+    <p><strong>Wind Direction:</strong><br><%= @spot.wind_direction.to_series %></p>
+    <p><strong>Swell Size:</strong><br><%= @spot.swell_size.to_series %></p>
+    <p><strong>Power:</strong><br><%= @spot.power.to_series %></p>
+    <p><strong>Localism:</strong><br><%= @spot.locals.to_series %></p>
+    <p><strong>Paddle Out:</strong><br><%= @spot.paddle_out.to_series %></p>
+    <p><strong>Ability:</strong><br><%= @spot.ability.to_series %></p>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-lg-12 images">
+    <h3>Pictures</h3>
+    <% if current_user %>
+      <span class="btn btn-default btn-sm expander">Add</span>
+      <span class="expandable">
+        <%= render partial: 'images/form' %>
+      </span>
+    <% end %><br>
+    <% @spot.images.persisted.approved.each do |image| %>
+      <%= link_to(image_tag(image.image.thumb.url, class: 'thumb'), image.image.url, class:'magnific-gallery-item') %>
+    <% end %>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-lg-12 comments">
+    <h3>Comments</h3>
+    <%= render partial: 'comments/comment', collection: @spot.comments.persisted %>
+    <%= render partial: 'comments/form' %>
+  </div>
+</div>

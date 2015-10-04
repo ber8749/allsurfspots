@@ -1,0 +1,12 @@
+<div class="col-lg-4">
+  <div class="well spot-small text-center">
+    <h4><%= image.imageable.class.name %>: <%= link_to image.imageable.name, image.imageable %></h4>
+    <%= link_to(image_tag(image.image.thumb.url, class: 'thumb'), image.image.url, class:'magnific-gallery-item', title: image.description) %>
+    <p><%= image.description %></p>
+    <% if controller_name == 'users' && action_name == 'awaiting_approval' && current_user.is_admin? %>
+      <%= link_to 'Approve', image_path(image, image: { approved: true }), method: :put, class: 'btn btn-xs btn-success' %>
+      <%= link_to 'Disapprove', image_path(image, image: { approved: false }), method: :put, class: 'btn btn-xs btn-danger' %>
+    <% end %>
+  </div>
+</div>
+<%= '<div class="clearfix"></div>'.html_safe if image_counter % 3 == 2 %>

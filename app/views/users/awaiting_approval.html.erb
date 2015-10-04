@@ -1,0 +1,14 @@
+<div class="page-header">
+  <h1>Awaiting Approval</h1>
+</div>
+<div id="google-map" data-lat="0" data-lng="0"></div>
+
+<h2>Spots</h2>
+<div class="table-responsive table-container">
+  <table class="table table-striped">
+    <%= render partial: 'spots/spot/row', collection: @spots, as: :spot %>
+  </table>
+</div>
+
+<h2>Images</h2>
+<%= render partial: 'images/image', collection: @images %>

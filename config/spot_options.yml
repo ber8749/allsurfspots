@@ -1,0 +1,75 @@
+wave_direction:
+  - right
+  - left
+kind:
+  - beach
+  - reef
+  - point
+  - slab
+bottom:
+  - sand
+  - rock
+  - reef
+consistency:
+  - very inconsistent
+  - inconsistent
+  - regular
+  - consistent
+  - very consistent
+quality:
+  - bad
+  - okay
+  - good
+  - epic
+crowd:
+  - none
+  - sparse
+  - crowded
+access:
+  - easy
+  - difficult
+tide:
+  - low
+  - mid
+  - high
+tide_direction:
+  - rising
+  - dropping
+power:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+directions:
+  - north
+  - north east
+  - east
+  - south east
+  - south
+  - south west
+  - west
+  - north west
+swell_size:
+  - knee to thigh
+  - waist to chest
+  - head to overhead
+  - double overhead plus
+ability:
+  - beginner
+  - intermediate
+  - advanced
+locals:
+  - none
+  - mellow
+  - aggro
+paddle_out:
+  - short
+  - normal
+  - long
+water_quality:
+  - clean
+  - dirty
+approved:
+  - true
+  - false

@@ -1,0 +1,32 @@
+<div class="navbar-collapse collapse navbar-responsive-collapse">
+  <ul class="nav navbar-nav">
+    <% CONTINENTS.each do |continent| %>
+    <li class="dropdown">
+      <%= link_to "#{continent} <span class='caret'></span>".html_safe, '#', class: 'dropdown-toggle', data: { toggle: 'dropdown' }, role: 'button', aria: { haspopup: 'true', expanded: 'false' } %>
+      <% if COUNTRY_SPOTS[continent] %>
+      <ul class="dropdown-menu">
+        <% COUNTRY_SPOTS[continent].each do |country| %>
+        <li><%= link_to country, "/spots/#{continent}/#{country}" %></li>
+        <%- end -%>
+      </ul>
+      <%- end -%>
+    </li>
+    <%- end -%>
+    <% if user_signed_in? %>
+      <li class="dropdown">
+        <%= link_to("My Account <span class='caret'></span>".html_safe, '#', class: 'dropdown-toggle', data: { toggle: 'dropdown' }, role: 'button', aria: { haspopup: 'true', expanded: 'false' }) %>
+        <ul class="dropdown-menu">
+          <li><%= link_to('My Details', edit_user_registration_path) %></li>
+          <li><%= link_to('My Spots', users_spots_path) %></li>
+          <% if current_user.is_admin? %>
+          <li><%= link_to 'Awaiting approval', users_awaiting_approval_path %></li>
+          <li><%= link_to 'Contacts', contacts_path %></li>
+          <% end %>
+          <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+        </ul>
+      </li>
+    <% else %>
+      <li><%= link_to('Login', new_user_session_path) %></li>
+    <% end %>
+  </ul>
+</div>

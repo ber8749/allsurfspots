@@ -1,0 +1,12 @@
+<tr>
+  <td><%= link_to spot.name, spot %></td>
+  <td><%= spot.wave_direction.to_series %></td>
+  <td><%= spot.kind.to_series %></td>
+  <td><%= spot.quality.to_series %></td>
+  <% if controller_name == 'users' && action_name == 'awaiting_approval' && current_user.is_admin? %>
+    <td>
+      <%= link_to 'Approve', spot_path(spot, spot: { approved: true }), method: :put, class: 'btn btn-xs btn-success' %>
+      <%= link_to 'Disapprove', spot_path(spot, spot: { approved: false }), method: :put, class: 'btn btn-xs btn-danger' %>
+    </td>
+  <% end %>
+</tr>

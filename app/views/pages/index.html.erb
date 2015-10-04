@@ -1,0 +1,6 @@
+<div class="row">
+  <div id="google-map" data-lat="0" data-lng="0" data-title="All Surf Spots"></div>
+</div>
+<div class="row">
+  <%= render partial: 'spots/spot/small', collection: @spots, as: :spot %>
+</div>

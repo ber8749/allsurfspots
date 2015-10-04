@@ -1,0 +1,7 @@
+<div class="page-header">
+  <h1>My Spots</h1>
+</div>
+<div id="google-map" data-lat="0" data-lng="0"></div>
+<div class="row">
+  <%= render partial: 'spots/spot/small', collection: @spots, as: :spot %>
+</div>

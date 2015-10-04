@@ -1,0 +1,155 @@
+<%= form_for @spot, :html => { class: "form-horizontal spot" } do |f| %>
+
+    <% if @spot.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@spot.errors.count, "error") %> prohibited this spot from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @spot.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+    <% end %>
+
+  <p class="text-info"><strong>Right click on the map below to specify the spots location</strong></p>
+  <div id="google-map" data-lat="<%= @spot.lat %>" data-lng="<%= @spot.lng %>" data-title="<%= @spot.name %>"></div>
+
+  <div class="col-lg-6">
+    <div class="control-group">
+      <%= f.label :name, 'Name*', class: 'control-label' %>
+      <div class="controls"><%= f.text_field :name, class: 'form-control' %></div>
+    </div>
+    <div class="control-group">
+      <%= f.label :aliases, class: 'control-label' %>
+      <div class="controls"><%= f.text_field :aliases, class: 'form-control' %></div>
+    </div>
+    <div class="control-group">
+      <%= f.label :description, class: 'control-label' %>
+      <div class="controls"><%= f.text_area :description, class: 'form-control', rows: 11 %></div>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="control-group">
+      <%= f.label :continent, 'Continent*', class: 'control-label' %>
+      <div class="controls"><%= f.select :continent, continent_options, class: 'form-control' %></div>
+    </div>
+    <div class="control-group">
+      <%= f.label :country, 'Country*', class: 'control-label' %>
+      <div class="controls"><%= f.select :country, country_options, class: 'form-control' %></div>
+    </div>
+    <div class="control-group">
+      <%= f.label :state, 'State/Province', class: 'control-label' %>
+      <div class="controls"><%= f.select :state, state_options, class: 'form-control' %></div>
+    </div>
+    <div class="control-group">
+      <%= f.label :city, class: 'control-label' %>
+      <div class="controls"><%= f.text_field :city, class: 'form-control' %></div>
+    </div>
+    <div class="control-group">
+      <%= f.label :address, class: 'control-label' %>
+      <div class="controls"><%= f.text_field :address, class: 'form-control' %></div>
+    </div>
+    <div class="control-group">
+      <%= f.label :lat, 'Latitude*', class: 'control-label' %>
+      <div class="controls"><%= f.text_field :lat, class: 'form-control' %></div>
+    </div>
+    <div class="control-group">
+      <%= f.label :lng, 'Longitude*', class: 'control-label' %>
+      <div class="controls"><%= f.text_field :lng, class: 'form-control' %></div>
+    </div>
+  </div>
+
+  <div class="col-lg-4">
+    <div class="control-group">
+      <%= f.label :wave_direction, class: 'control-label' %>
+      <div class="controls checkbox"><%= f.collection_check_boxes(:wave_direction, SPOT_OPTIONS[:wave_direction], :to_s, :to_s, checked: @spot.wave_direction, class: 'form-control') %></div>
+    </div>
+    <div class="control-group">
+      <%= f.label :kind, 'Break Type', class: 'control-label' %>
+      <div class="controls checkbox"><%= collection_check_boxes(:spot, :kind, SPOT_OPTIONS[:kind],:to_s, :to_s, checked: @spot.kind, class: 'form-control') %></div>
+    </div>
+    <div class="control-group">
+      <%= f.label :bottom, class: 'control-label' %>
+      <div class="controls checkbox"><%= collection_check_boxes(:spot, :bottom, SPOT_OPTIONS[:bottom],:to_s, :to_s, checked: @spot.bottom, class: 'form-control') %></div>
+    </div>
+    <div class="control-group">
+      <%= f.label :power, class: 'control-label' %>
+      <div class="controls checkbox"><%= collection_check_boxes(:spot, :power, SPOT_OPTIONS[:power],:to_s, :to_s, checked: @spot.power, class: 'form-control') %></div>
+    </div>
+    <div class="control-group">
+      <%= f.label :quality, class: 'control-label' %>
+      <div class="controls checkbox"><%= collection_check_boxes(:spot, :quality, SPOT_OPTIONS[:quality],:to_s, :to_s, checked: @spot.quality, class: 'form-control') %></div>
+    </div>
+    <div class="control-group">
+      <%= f.label :ability, class: 'control-label' %>
+      <div class="controls checkbox"><%= collection_check_boxes(:spot, :ability, SPOT_OPTIONS[:ability],:to_s, :to_s, checked: @spot.ability, class: 'form-control') %></div>
+    </div>
+  </div>
+
+  <div class="col-lg-4">
+    <div class="control-group">
+      <%= f.label :crowd, class: 'control-label' %>
+      <div class="controls checkbox"><%= collection_check_boxes(:spot, :crowd, SPOT_OPTIONS[:crowd],:to_s, :to_s, checked: @spot.crowd, class: 'form-control') %></div>
+    </div>
+    <div class="control-group">
+      <%= f.label :water_quality, class: 'control-label' %>
+      <div class="controls checkbox"><%= collection_check_boxes(:spot, :water_quality, SPOT_OPTIONS[:water_quality],:to_s, :to_s, checked: @spot.water_quality, class: 'form-control') %></div>
+    </div>
+    <div class="control-group">
+      <%= f.label :access, class: 'control-label' %>
+      <div class="controls checkbox"><%= collection_check_boxes(:spot, :access, SPOT_OPTIONS[:access],:to_s, :to_s, checked: @spot.access, class: 'form-control') %></div>
+    </div>
+    <div class="control-group">
+      <%= f.label :consistency, class: 'control-label' %>
+      <div class="controls checkbox"><%= collection_check_boxes(:spot, :consistency, SPOT_OPTIONS[:consistency],:to_s, :to_s, checked: @spot.consistency, class: 'form-control') %></div>
+    </div>
+    <div class="control-group">
+      <%= f.label :paddle_out, class: 'control-label' %>
+      <div class="controls checkbox"><%= collection_check_boxes(:spot, :paddle_out, SPOT_OPTIONS[:paddle_out],:to_s, :to_s, checked: @spot.paddle_out, class: 'form-control') %></div>
+    </div>
+    <div class="control-group">
+      <%= f.label :locals, class: 'control-label' %>
+      <div class="controls checkbox"><%= collection_check_boxes(:spot, :locals, SPOT_OPTIONS[:locals],:to_s, :to_s, checked: @spot.locals, class: 'form-control') %></div>
+    </div>
+  </div>
+
+  <div class="col-lg-4">
+    <div class="control-group">
+      <%= f.label :tide_direction, 'Best Tide Direction', class: 'control-label' %>
+      <div class="controls checkbox"><%= collection_check_boxes(:spot, :tide_direction, SPOT_OPTIONS[:tide_direction],:to_s, :to_s, checked: @spot.tide_direction, class: 'form-control') %></div>
+    </div>
+    <div class="control-group">
+      <%= f.label :tide, 'Best Tide', class: 'control-label' %>
+      <div class="controls checkbox"><%= collection_check_boxes(:spot, :tide, SPOT_OPTIONS[:tide],:to_s, :to_s, checked: @spot.tide, class: 'form-control') %></div>
+    </div>
+    <div class="control-group">
+      <%= f.label :wind_direction, 'Best Wind Direction', class: 'control-label' %>
+      <div class="controls checkbox"><%= collection_check_boxes(:spot, :wind_direction, SPOT_OPTIONS[:directions],:to_s, :to_s, checked: @spot.wind_direction, class: 'form-control') %></div>
+    </div>
+    <div class="control-group">
+      <%= f.label :swell_size, 'Best Swell Size', class: 'control-label' %>
+      <div class="controls checkbox"><%= collection_check_boxes(:spot, :swell_size, SPOT_OPTIONS[:swell_size],:to_s, :to_s, checked: @spot.swell_size, class: 'form-control') %></div>
+    </div>
+    <div class="control-group">
+      <%= f.label :swell_direction, 'Best Swell Direction', class: 'control-label' %>
+      <div class="controls checkbox"><%= collection_check_boxes(:spot, :swell_direction, SPOT_OPTIONS[:directions],:to_s, :to_s, checked: @spot.swell_direction, class: 'form-control') %></div>
+    </div>
+  </div>
+  <% if current_user.is_admin? %>
+    <div class="col-lg-12">
+      <div class="control-group">
+        <%= f.label :approved, 'Approved', class: 'control-label' %>
+        <div class="controls radio"><%= collection_radio_buttons(:spot, :approved, SPOT_OPTIONS[:approved],:to_s, :to_s, checked: @spot.approved, class: 'form-control') %></div>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="col-lg-12 text-center">
+    <%= f.submit nil, class: 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")), spots_path, class: 'btn btn-default' %>
+  </div>
+<% end %>

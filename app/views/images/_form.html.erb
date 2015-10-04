@@ -1,0 +1,21 @@
+<%= form_for([@image.imageable,@image], html: { class: 'form-inline' }) do |f| %>
+  <% if @image.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@image.errors.count, "error") %> prohibited this image from being saved:</h2>
+
+      <ul>
+      <% @image.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <!--<div class="form-group">
+    <%= f.label :description %> <%= f.text_field :description, class: 'form-control' %>
+  </div>-->
+
+  <div class="form-group">
+    <%= f.label :image %> <%= f.file_field :image, class: 'form-control' %>
+  </div>
+  <%= f.submit 'Add a Picture', class: 'btn btn-default' %>
+<% end %>

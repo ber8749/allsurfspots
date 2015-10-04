@@ -1,0 +1,4 @@
+<p class="comment">
+  <strong><%= comment.user.name %></strong> <small>- <%= distance_of_time_in_words(comment.created_at, Time.now) %> ago</small><br/>
+  <%= comment.comment %>
+</p>

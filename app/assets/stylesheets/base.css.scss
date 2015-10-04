@@ -1,0 +1,210 @@
+@import 'variables';
+@import url(https://fonts.googleapis.com/css?family=Righteous|Ramabhadra);
+
+/* set HTML element styles */
+body {
+  background:url('/images/az_subtle.png');
+}
+footer {
+  background: black;
+  color: white;
+  padding: 20px 20px 15px 20px;
+  text-align: right;
+
+  a {
+    color: white;
+    &:hover {
+      color: $color2;
+    }
+    &:visited {
+      color: none;
+    }
+  }
+}
+h1,h2,h3,h4,h5 {
+  font-family: 'Ramabhadra', cursive;
+  font-weight: bold;
+}
+a {
+  color: $color1;
+  &:hover {
+    color: $color2;
+  }
+  &:visited {
+    color: none;
+  }
+}
+hr {
+  border-top-color: $color1;
+}
+table {
+  th {
+    background: $color1;
+    color: white;
+  }
+}
+/* overwrite default BootStrap styles */
+.btn {
+  font-family: 'Righteous', cursive;
+  text-transform: uppercase;
+}
+.btn-default {
+  background: $color2;
+  color: white;
+
+  &:hover {
+    background: $color3;
+    color: white;
+  }
+  &:visited {
+    color: white;
+  }
+}
+.navbar.navbar-default {
+  background: $color1;
+  margin-bottom: 0;
+
+  .navbar-brand {
+    background: $color1;
+    color: white;
+    font-family: 'Righteous', cursive;
+    font-weight: bold;
+    font-size: 1.8em;
+    letter-spacing: 2px;
+    vertical-align: middle;
+
+    &:hover {
+      color: $color2;
+      vertical-align: middle;
+    }
+
+    img {
+      display: inline;
+      height: .7em;
+    }
+  }
+  .nav.navbar-nav {
+    li {
+      a {
+        background: $color1;
+        color: white;
+        font-size: .9em;
+        font-weight: bold;
+        text-transform: uppercase;
+
+        &:hover,&:focus,&:active {
+          color: $color2;
+          /*color: white;*/
+        }
+      }
+    }
+  }
+  .navbar-toggle {
+    background: $color1;
+    &:hover,&:focus,&:active {
+      background: $color2;
+    }
+    .icon-bar {
+      background: white;
+    }
+  }
+}
+.dropdown-menu {
+  background: $color1;
+
+  a { color: white; }
+}
+.page-header {
+  margin: 20px 0 20px;
+  border-bottom: 1px solid $color1;
+}
+.well ul {
+  list-style-type: none;
+  padding: 0;
+
+  li {
+    margin: 10px 10px 10px 10px;
+  }
+}
+.field_with_errors {
+  color: red;
+}
+
+/* custom styles */
+.container-1 {
+  background: white;
+  padding: 20px;
+}
+.margin-top {
+  margin-top: 10px;
+}
+.margin-bottom {
+  margin-bottom: 10px;
+}
+.padding-none {
+  padding: 0;
+}
+.hundred {
+  width: 100%;
+}
+#google-map {
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px grey;
+  height: 30em;
+  margin: 0 2% 20px 2%;
+  width: 96%;
+}
+.checkbox {
+  input[type=checkbox] {
+    margin-left: 0;
+  }
+  label {
+    display: block;
+  }
+}
+.radio {
+  input[type=radio] {
+    margin-left: 0;
+  }
+  label {
+    display: block;
+  }
+}
+.banner {
+  background: $color1;
+  color: white;
+  font-weight: bold;
+  padding: .5em 0 .5em 0;
+  text-align: center;
+  width: 100%;
+}
+.table-container {
+  margin: 0 2% 0 2%;
+  width: 96%;
+}
+.comments {
+  margin-bottom: 10px;
+
+  h3 {
+    margin-top:0;
+  }
+  .comment {
+    background: #e8ecf9;
+    border: 1px solid #e3e3e3;
+    border-radius: 5px;
+    padding: 3px 5px 3px 5px;
+  }
+}
+.thumb {
+  border-radius: 5px;
+  /*box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);*/
+  opacity: .9;
+  width: 100%;
+
+  &:hover {
+    opacity: 1.0;
+  }
+}
+.expandable {
+  display: none;
+}
