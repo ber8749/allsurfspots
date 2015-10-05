@@ -70,7 +70,7 @@
               <h3 class="banner">Newest Pictures</h3>
               <ul class="newest-images">
                 <% @newest_images.each do |image| %>
-                  <li><%= link_to(image_tag(image.image.thumb.url, class: 'thumb'), image.image.url, class: 'magnific-image', title: spot_image_caption(image)) %></li>
+                  <li><%= link_to(image_tag(image.medium_thumb_url, class: 'thumb'), image.url, class: 'magnific-image', title: spot_image_caption(image)) %></li>
                 <%- end -%>
               </ul>
             </div><!--/.well -->

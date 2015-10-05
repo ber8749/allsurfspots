@@ -18,7 +18,6 @@ gem 'twitter-bootstrap-rails'                   # Use Bootstrap for the front en
 gem 'countries'
 gem 'devise'
 gem 'acts_as_commentable'                       # Comments
-gem 'carrierwave'                               # File uploads
 gem 'rmagick'                                   # Image manipulation
 gem 'magnific-popup-rails'                      # Image lightbox
 gem 'ratyrate'                                  # Ratings

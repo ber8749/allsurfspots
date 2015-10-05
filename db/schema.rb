@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 20150930022532) do
 
   create_table "images", force: true do |t|
     t.text     "description"
-    t.string   "image"
+    t.string   "imgur_id"
     t.integer  "imageable_id"
     t.string   "imageable_type"
     t.datetime "created_at",     null: false

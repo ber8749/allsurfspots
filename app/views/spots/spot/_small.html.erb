@@ -4,7 +4,7 @@
       <%= link_to spot.name, spot %><br>
       <small><%= spot.city.present? ? spot.city : spot.state %>, <%= spot.country %> </small>
     </h4>
-    <%= link_to(image_tag(spot.images.approved.first.image.thumb.url, class: 'thumb'), spot) if spot.images.approved.any? %>
+    <%= link_to(image_tag(spot.images.approved.first.medium_thumb_url, class: 'thumb'), spot) if spot.images.approved.any? %>
     <p><%= spot.wave_direction.to_series %> <%= spot.kind.to_series %> break</p>
     <%= rating_for(spot, 'quality') %>
   </div>
