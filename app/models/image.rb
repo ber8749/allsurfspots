@@ -6,7 +6,6 @@ class Image < ActiveRecord::Base
   scope :persisted, -> { where.not(id: nil) }
   scope :approved,  -> { where(approved: true) }
 
-  VALID_MIME_TYPES = ['JPG','JPEG','GIF','PNG']
   IMGUR_URL = 'http://i.imgur.com/'
 
   def file
