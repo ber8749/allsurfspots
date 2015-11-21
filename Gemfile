@@ -11,7 +11,6 @@ gem 'jquery-rails'                              # Use jquery as the JavaScript l
 gem 'turbolinks'                                # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'jbuilder', '~> 2.0'                        # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'sdoc', '~> 0.4.0', group: :doc             # bundle exec rake doc:rails generates the API under doc/api.
-gem 'spring', group: :development               # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'therubyracer'
 gem 'less-rails'                                # Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem 'twitter-bootstrap-rails'                   # Use Bootstrap for the front end framework
@@ -22,15 +21,13 @@ gem 'rmagick'                                   # Image manipulation
 gem 'magnific-popup-rails'                      # Image lightbox
 gem 'ratyrate'                                  # Ratings
 gem 'imgurapi'                                  # imgur upload
+gem 'debugger', group: [:development, :test]    # debugger
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
+# local gems
+group :development do
+  gem 'capistrano', '~> 3.1.0'                  # deployment
+  gem 'capistrano-bundler', '~> 1.1.2'
+  gem 'capistrano-rails', '~> 1.1.1'
+  gem 'capistrano-rbenv', github: 'capistrano/rbenv'
+  gem 'spring'                                  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+end
