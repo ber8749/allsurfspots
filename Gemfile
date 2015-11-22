@@ -21,7 +21,6 @@ gem 'rmagick'                                   # Image manipulation
 gem 'magnific-popup-rails'                      # Image lightbox
 gem 'ratyrate'                                  # Ratings
 gem 'imgurapi'                                  # imgur upload
-#gem 'debugger', group: [:development, :test]    # debugger
 
 # local gems
 group :development do
