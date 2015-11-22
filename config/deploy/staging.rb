@@ -1,7 +1,7 @@
 set :stage, :staging
 set :rails_env, :staging
 
-server 'staging.allsurfspots.com', user: 'deploy', roles: %w{web app db}, primary: true
+server '45.79.79.108', user: 'deploy', roles: %w{web app db}, primary: true
 
 # Simple Role Syntax
 # ==================

@@ -7,12 +7,15 @@ set :deploy_user, 'deploy'
 
 set :rbenv_type, :user # or :system, depends on your rbenv setup
 set :rbenv_ruby, '2.2.3'
+#set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
+#set :rbenv_map_bins, %w{rake gem bundle ruby rails}
+#set :rbenv_roles, :all # default value
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 
 # Default deploy_to directory
-set :deploy_to, '/var/www/allsurfspots/staging'
+set :deploy_to, "/var/www/#{fetch(:application)}/#{fetch(:stage)}"
 
 # Default value for :scm is :git
 # set :scm, :git

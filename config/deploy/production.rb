@@ -1,7 +1,7 @@
 set :stage, :production
 set :rails_env, :production
 
-server 'allsurfspots.com', user: 'deploy', roles: %w{web app db}, primary: true
+server '45.79.79.108', user: 'deploy', roles: %w{web app db}, primary: true
 # Simple Role Syntax
 # ==================
 # Supports bulk-adding hosts to roles, the primary
