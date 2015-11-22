@@ -21,13 +21,13 @@ gem 'rmagick'                                   # Image manipulation
 gem 'magnific-popup-rails'                      # Image lightbox
 gem 'ratyrate'                                  # Ratings
 gem 'imgurapi'                                  # imgur upload
-gem 'debugger', group: [:development, :test]    # debugger
+#gem 'debugger', group: [:development, :test]    # debugger
 
 # local gems
 group :development do
   gem 'capistrano', '~> 3.1.0'                  # deployment
   gem 'capistrano-bundler', '~> 1.1.2'
   gem 'capistrano-rails', '~> 1.1.1'
-  gem 'capistrano-rbenv', '~2.0'
+  gem 'capistrano-rbenv', '~> 2.0'
   gem 'spring'                                  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 end

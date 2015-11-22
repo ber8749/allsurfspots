@@ -35,6 +35,19 @@ GEM
       execjs (~> 2.0)
     bcrypt (3.1.10)
     builder (3.2.2)
+    capistrano (3.1.0)
+      i18n
+      rake (>= 10.0.0)
+      sshkit (~> 1.3)
+    capistrano-bundler (1.1.4)
+      capistrano (~> 3.1)
+      sshkit (~> 1.2)
+    capistrano-rails (1.1.5)
+      capistrano (~> 3.1)
+      capistrano-bundler (~> 1.1)
+    capistrano-rbenv (2.0.3)
+      capistrano (~> 3.1)
+      sshkit (~> 1.3)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -42,6 +55,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.9.1.1)
+    colorize (0.7.7)
     commonjs (0.2.7)
     countries (0.11.4)
       currencies (~> 0.4.2)
@@ -84,6 +98,9 @@ GEM
     minitest (5.7.0)
     multi_json (1.11.0)
     multipart-post (2.0.0)
+    net-scp (1.2.1)
+      net-ssh (>= 2.6.5)
+    net-ssh (3.0.1)
     orm_adapter (0.5.0)
     pg (0.18.2)
     rack (1.5.3)
@@ -131,6 +148,10 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
+    sshkit (1.7.1)
+      colorize (>= 0.7.0)
+      net-scp (>= 1.1.2)
+      net-ssh (>= 2.8.0)
     therubyracer (0.12.2)
       libv8 (~> 3.16.14.0)
       ref
@@ -157,6 +178,10 @@ PLATFORMS
 
 DEPENDENCIES
   acts_as_commentable
+  capistrano (~> 3.1.0)
+  capistrano-bundler (~> 1.1.2)
+  capistrano-rails (~> 1.1.1)
+  capistrano-rbenv (~> 2.0)
   coffee-rails (~> 4.0.0)
   countries
   devise
@@ -178,3 +203,6 @@ DEPENDENCIES
   turbolinks
   twitter-bootstrap-rails
   uglifier (>= 1.3.0)
+
+BUNDLED WITH
+   1.10.6
