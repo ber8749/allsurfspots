@@ -1,8 +1,7 @@
 set :stage, :staging
 set :rails_env, :staging
 
-server '45.79.79.108', user: 'deploy', roles: %w{web app db}, primary: true
-
+server '45.79.79.108', user: 'deploy', roles: %w{web app}
 # Simple Role Syntax
 # ==================
 # Supports bulk-adding hosts to roles, the primary
