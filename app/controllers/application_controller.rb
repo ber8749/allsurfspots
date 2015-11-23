@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
     end
 
     def set_newest_images
-      @newest_images = Image.last(1).reverse
+      @newest_images = Image.approved.last(1).reverse
     end
 
     def verify_admin
