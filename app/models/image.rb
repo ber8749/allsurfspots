@@ -31,6 +31,7 @@ class Image < ActiveRecord::Base
     image.format = 'JPG'
 
     temp = Tempfile.new('temp')
+    puts "Temporary file path: #{temp.path}"
     image.write(temp.path)
 
     self.imgur_id = imgur_session.image.image_upload(temp.path).id
