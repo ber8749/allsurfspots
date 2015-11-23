@@ -43,22 +43,22 @@ set :linked_files, %w{config/database.yml config/secrets.yml}
 
 namespace :deploy do
 
+  before :deploy, :check_revision
+  after  :publishing, :restart
+
+  desc 'Ensure local git repo is in sync with remote.'
+  task :check_revision, roles: :web do
+    unless `git rev-parse HEAD` == `git rev-parse origin/master`
+      puts 'WARNING: HEAD is not the same as origin/master'
+      puts 'Run `git push` to sync changes.'
+      exit
+    end
+  end
+
   desc 'Restart application'
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
       execute :touch, release_path.join('tmp/restart.txt')
     end
   end
-
-  after :publishing, :restart
-
-  after :restart, :clear_cache do
-    on roles(:web), in: :groups, limit: 3, wait: 10 do
-      # Here we can do anything such as:
-      # within release_path do
-      #   execute :rake, 'cache:clear'
-      # end
-    end
-  end
-
 end
