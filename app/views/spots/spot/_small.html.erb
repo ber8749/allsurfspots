@@ -6,7 +6,7 @@
     </h4>
     <%= link_to(image_tag(spot.images.approved.first.medium_thumb_url, class: 'thumb'), spot) if spot.images.approved.any? %>
     <p><%= spot.wave_direction.to_series %> <%= spot.kind.to_series %> break</p>
-    <%= rating_for(spot, 'quality', star_path: 'images') %>
+    <%= rating_for(spot, 'quality', star_path: '/images') %>
   </div>
 </div>
 <%= '<div class="clearfix"></div>'.html_safe if spot_counter % 3 == 2 %>
