@@ -6,7 +6,7 @@
       <% if COUNTRY_SPOTS[continent] %>
       <ul class="dropdown-menu">
         <% COUNTRY_SPOTS[continent].each do |country| %>
-        <li><%= link_to country, "/spots/#{continent}/#{country}" %></li>
+        <li><%= link_to country, spots_path(country: country) %></li>
         <%- end -%>
       </ul>
       <%- end -%>

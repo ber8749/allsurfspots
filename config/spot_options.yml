@@ -13,7 +13,6 @@ bottom:
 consistency:
   - very inconsistent
   - inconsistent
-  - regular
   - consistent
   - very consistent
 quality:

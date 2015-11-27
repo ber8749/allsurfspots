@@ -1,21 +1,21 @@
 class Spot < ActiveRecord::Base
   include Rails.application.routes.url_helpers
 
-  acts_as_commentable
-  ratyrate_rateable 'quality'
-
   belongs_to :user, foreign_key: :created_by
   has_many :images, as: :imageable
 
-  before_save :reject_array_blanks
-
   validates_presence_of :name, :continent, :country, :lat, :lng
+
+  before_save :reject_array_blanks
 
   scope :approved, -> { where(approved: true) }
   scope :has_images, -> { joins(:images).uniq }
   scope :minimal, -> { select(:id,:name,:lat,:lng,:wave_direction,:kind,:city,:state,:country) }
-  scope :newest, -> { order('id DESC') }
-  scope :north_to_south, -> { order('lat DESC') }
+  scope :newest, -> { order(id: :desc) }
+  scope :north_to_south, -> { order(lat: :desc) }
+
+  acts_as_commentable
+  ratyrate_rateable 'quality'
 
   # countries with spots
   def self.countries_with_spots

@@ -1,12 +1,13 @@
 class Image < ActiveRecord::Base
-  belongs_to :imageable, polymorphic: true
+
+  IMGUR_URL = 'http://i.imgur.com/'
 
   attr_accessor :file_upload
 
+  belongs_to :imageable, polymorphic: true
+
   scope :persisted, -> { where.not(id: nil) }
   scope :approved,  -> { where(approved: true) }
-
-  IMGUR_URL = 'http://i.imgur.com/'
 
   def file
     "#{imgur_id}.jpg"

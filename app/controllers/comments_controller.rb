@@ -21,7 +21,6 @@ class CommentsController < ApplicationController
   def create
     @commentable = find_commentable
     @comment = @commentable.comments.new(comment_params.merge(user_id: current_user.id))
-
     flash[:notice] = 'Comment successfully created.' if @comment.save
     respond_with(@commentable)
   end

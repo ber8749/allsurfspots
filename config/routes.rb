@@ -1,24 +1,22 @@
 Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
-  devise_for :users, :controllers => { registrations: 'registrations' }
-  get 'users/spots', to: 'users#spots'
-  get 'users/awaiting_approval', to: 'users#awaiting_approval'
+  devise_for :users, controllers: { registrations: 'registrations' }
+  devise_scope :user do
+    get '/users/spots' => 'users#spots'
+    get '/users/awaiting_approval' => 'users#awaiting_approval'
+  end
+
   post '/rate' => 'rater#create', :as => 'rate'
 
   resources :comments
   resources :contacts
   resources :images
-
-  constraints(id: /\d+/) do # routes with alphabetic :id are bypassed
-    resources :spots do
-      resources :comments
-      resources :images
-      get :country_options, on: :collection
-      get :state_options,   on: :collection
-    end
+  resources :spots do
+    resources :comments
+    resources :images
+    get :country_options, on: :collection
+    get :state_options,   on: :collection
   end
-
-  get 'spots(/:continent(/:country(/:state)))', to: 'spots#index'
 
   root 'pages#index'
 end

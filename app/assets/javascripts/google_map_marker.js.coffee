@@ -6,7 +6,7 @@ class @GoogleMapMarker
     @url       = args.url
     @map       = args.map
     @position  = new google.maps.LatLng(@lat, @lng);
-    @marker    = new google.maps.Marker(position: @position, map: @map, title: @title, url: @url, icon: '/images/icon-target.png')
+    @marker    = new google.maps.Marker(position: @position, map: @map, title: @title, url: @url, icon: '/images/marker.png')
     @location  = null
     # set click functionality
     google.maps.event.addListener(@marker, 'click', () ->

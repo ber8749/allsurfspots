@@ -5,9 +5,16 @@
 
   <div class="col-lg-4">
     <div class="control-group">
+      <%= f.label :name, 'Name <i>(publicly viewable)</i>'.html_safe, class: 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :name, required: true, autofocus: true, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="control-group">
       <%= f.label :email, class: 'control-label' %>
       <div class="controls">
-        <%= f.email_field :email, autofocus: true, class: 'form-control' %>
+        <%= f.email_field :email, required: true, class: 'form-control' %>
       </div>
     </div>
 
@@ -17,14 +24,14 @@
       <em>(<%= @minimum_password_length %> characters minimum)</em>
       <% end %>
       <div class="controls">
-        <%= f.password_field :password, autocomplete: 'off', class: 'form-control' %>
+        <%= f.password_field :password, autocomplete: 'off', required: true, class: 'form-control' %>
       </div>
     </div>
 
     <div class="control-group">
       <%= f.label :password_confirmation %>
       <div class="controls">
-        <%= f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control' %>
+        <%= f.password_field :password_confirmation, autocomplete: 'off', required: true, class: 'form-control' %>
       </div>
     </div>
 

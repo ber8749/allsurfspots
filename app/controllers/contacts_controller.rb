@@ -6,16 +6,13 @@ class ContactsController < ApplicationController
 
   def index
     @contacts = Contact.all
-    respond_with(@contacts)
   end
 
   def show
-    respond_with(@contact)
   end
 
   def new
     @contact = Contact.new
-    respond_with(@contact)
   end
 
   def edit
