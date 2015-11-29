@@ -3,9 +3,10 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  before_action :set_newest_spots, :set_newest_comments, :set_newest_images
+  before_action :set_newest_spots, :set_newest_comments, :set_newest_images, :set_continents, :set_countries
 
   private
+
     def set_newest_spots
       @newest_spots = Spot.approved.last(5).reverse
     end
@@ -16,6 +17,14 @@ class ApplicationController < ActionController::Base
 
     def set_newest_images
       @newest_images = Image.approved.last(1).reverse
+    end
+
+    def set_continents
+      @continents ||= CONTINENTS
+    end
+
+    def set_countries
+      @countries ||= Spot.countries_with_spots
     end
 
     def verify_admin

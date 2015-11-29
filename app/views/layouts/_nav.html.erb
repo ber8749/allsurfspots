@@ -1,11 +1,11 @@
 <div class="navbar-collapse collapse navbar-responsive-collapse">
   <ul class="nav navbar-nav">
-    <% CONTINENTS.each do |continent| %>
+    <% @continents.each do |continent| %>
     <li class="dropdown">
       <%= link_to "#{continent} <span class='caret'></span>".html_safe, '#', class: 'dropdown-toggle', data: { toggle: 'dropdown' }, role: 'button', aria: { haspopup: 'true', expanded: 'false' } %>
-      <% if COUNTRY_SPOTS[continent] %>
+      <% if @countries[continent] %>
       <ul class="dropdown-menu">
-        <% COUNTRY_SPOTS[continent].each do |country| %>
+        <% @countries[continent].each do |country| %>
         <li><%= link_to country, spots_path(country: country) %></li>
         <%- end -%>
       </ul>
@@ -22,11 +22,11 @@
           <li><%= link_to 'Awaiting approval', users_awaiting_approval_path %></li>
           <li><%= link_to 'Contacts', contacts_path %></li>
           <% end %>
-          <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+          <li><%= link_to('Logout', destroy_user_session_path, method: :delete) %></li>
         </ul>
       </li>
     <% else %>
       <li><%= link_to('Login', new_user_session_path) %></li>
-    <% end %>
+    <%- end -%>
   </ul>
 </div>

@@ -46,8 +46,8 @@ class Image < ActiveRecord::Base
   private
     def imgur_session
       @imgur_session ||= Imgurapi::Session.new(client_id: Rails.application.secrets.imgur['client_id'],
-                                            client_secret: Rails.application.secrets.imgur['client_secret'],
-                                            access_token: Rails.application.secrets.imgur['access_token'],
-                                            refresh_token: Rails.application.secrets.imgur['refresh_token'])
+                                               client_secret: Rails.application.secrets.imgur['client_secret'],
+                                               access_token: Rails.application.secrets.imgur['access_token'],
+                                               refresh_token: Rails.application.secrets.imgur['refresh_token'])
     end
 end
