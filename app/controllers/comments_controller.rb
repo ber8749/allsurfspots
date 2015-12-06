@@ -19,7 +19,7 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @commentable = find_commentable
+    @commentable = find_owner
     @comment = @commentable.comments.new(comment_params.merge(user_id: current_user.id))
     flash[:notice] = 'Comment successfully created.' if @comment.save
     respond_with(@commentable)
@@ -44,14 +44,5 @@ class CommentsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
       params.require(:comment).permit(:comment)
-    end
-
-    def find_commentable
-      params.each do |name, value|
-        if name =~ /(.+)_id$/
-          return $1.classify.constantize.find(value)
-        end
-      end
-      nil
     end
 end

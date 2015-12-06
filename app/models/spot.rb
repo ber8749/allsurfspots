@@ -1,6 +1,6 @@
 class Spot < ActiveRecord::Base
   belongs_to :user, foreign_key: :created_by
-  has_many :images, as: :imageable
+  has_many   :images, as: :imageable
 
   validates :name, :continent, :country, :lat, :lng, presence: true
 
@@ -15,8 +15,7 @@ class Spot < ActiveRecord::Base
   acts_as_commentable
   ratyrate_rateable 'quality'
 
-  #HACK: this doesn't smell right
-  def self.countries_with_spots
+  def self.valid_countries
     Spot.approved.pluck(:continent,:country).uniq.group_by(&:first).each do |key,value|
       value.flatten!
       value.delete(key)

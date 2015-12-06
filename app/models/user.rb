@@ -6,8 +6,8 @@ class User < ActiveRecord::Base
   validates :name, presence: true, uniqueness: true, length: { maximum: 50 }
 
   # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable, :lockable,
+  # :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :confirmable, :registerable, :lockable,
          :recoverable, :rememberable, :trackable, :validatable
   ratyrate_rater
 

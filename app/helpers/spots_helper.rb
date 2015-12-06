@@ -27,9 +27,9 @@ module SpotsHelper
   def spots_to_json
     s = []
     if @spot.try(:persisted?)
-      s << @spot
+      s << @spot.attributes.merge(url: spot_url(@spot))
     elsif @spots
-      s = @spots
+      s = @spots.map { |s| s.attributes.merge(url: spot_url(s)) }
     end
     s.to_json.html_safe
   end

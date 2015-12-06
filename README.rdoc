@@ -1,22 +1,17 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A simple tool which allows users to share surf spots.
 
-Things you may want to cover:
+* Ruby 2.2.3
 
-* Ruby version 2.2.3
+* Rails 4.1.8
 
-* System dependencies
+* PostgreSQL
 
-* Configuration
+* Bootstrap
 
-* Database creation
+* Coffeescript
 
-* Database initialization
+* Rspec
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
+* imgur API

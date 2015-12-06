@@ -21,7 +21,7 @@ class ImagesController < ApplicationController
   end
 
   def create
-    @imageable = find_imageable
+    @imageable = find_owner
     @image = @imageable.images.new(image_params)
     flash[:notice] = 'Picture successfully submitted. Your picture will be displayed after it has been approved by an administrator' if @image.upload && @image.save
     respond_with(@imageable)
@@ -44,14 +44,5 @@ class ImagesController < ApplicationController
 
     def image_params
       params.require(:image).permit(:description, :file_upload, :approved)
-    end
-
-    def find_imageable
-      params.each do |name, value|
-        if name =~ /(.+)_id$/
-          return $1.classify.constantize.find(value)
-        end
-      end
-      nil
     end
 end
