@@ -29,8 +29,12 @@ FactoryGirl.define do
     water_quality   'clean'
     approved        true
     created_by      1
-    created_at      Time.current
-    updated_at      Time.current
+    created_at      { 1.week.ago }
+    updated_at      { 1.week.ago }
+
+    trait :invalid do
+      name nil
+    end
   end
 
 end
