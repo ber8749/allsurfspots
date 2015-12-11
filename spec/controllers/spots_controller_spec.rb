@@ -29,7 +29,7 @@ describe SpotsController do
   end
 
   describe 'GET #new' do
-    context 'logged in' do
+    context 'when logged in' do
       login_user
       it 'renders the #new view' do
         get :new
@@ -37,7 +37,7 @@ describe SpotsController do
       end
     end
 
-    context 'logged out' do
+    context 'when logged out' do
       it 'redirects to sign in' do
         get :new
         expect(response).to redirect_to(new_user_session_path)
@@ -47,8 +47,8 @@ describe SpotsController do
 
   describe 'POST create' do
     login_user
-    context 'with valid attributes' do
-      before :each do
+    context 'when valid' do
+      before do
         spot = build(:spot)
         post :create, spot: spot.attributes
       end
@@ -62,8 +62,8 @@ describe SpotsController do
       end
     end
 
-    context 'with invalid attributes' do
-      before :each do
+    context 'when invalid' do
+      before do
         spot = build(:spot, :invalid)
         post :create, spot: spot.attributes
       end
@@ -80,11 +80,11 @@ describe SpotsController do
 
   describe 'PUT update' do
     login_user
-    before :each do
+    before do
       @spot = create(:spot)
     end
 
-    context 'valid attributes' do
+    context 'when valid' do
       it 'located the requested @spot' do
         put :update, id: @spot, spot: FactoryGirl.attributes_for(:spot)
         expect(assigns(:spot)).to eq(@spot)
@@ -104,7 +104,7 @@ describe SpotsController do
       end
     end
 
-    context 'invalid attributes' do
+    context 'when invalid' do
       it 'locates the requested @spot' do
         put :update, id: @spot, spot: FactoryGirl.attributes_for(:spot,:invalid)
         expect(assigns(:spot)).to eq(@spot)
