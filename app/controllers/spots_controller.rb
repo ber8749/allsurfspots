@@ -30,7 +30,7 @@ class SpotsController < ApplicationController
 
   def create
     @spot = Spot.new(spot_params.merge(created_by: current_user.id))
-    flash[:notice] = 'Spot successfully created. Your spot will be displayed after it has been approved by an administrator.' if @spot.save
+    flash[:notice] = 'Spot successfully created.' if @spot.save
     respond_with(@spot)
   end
 
