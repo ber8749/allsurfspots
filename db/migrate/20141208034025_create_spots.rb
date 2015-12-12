@@ -28,7 +28,7 @@ class CreateSpots < ActiveRecord::Migration
       t.string :locals, array: true, default: []
       t.string :paddle_out, array: true, default: []
       t.string :water_quality, array: true, default: []
-      t.boolean :approved
+      t.boolean :approved, default: true
       t.integer :created_by
 
       t.timestamps

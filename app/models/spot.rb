@@ -6,7 +6,7 @@ class Spot < ActiveRecord::Base
 
   before_save :reject_array_blanks
 
-  scope :approved,       -> { where.not(approved: false) }
+  scope :approved,       -> { where(approved: true) }
   scope :has_images,     -> { joins(:images).uniq }
   scope :minimal,        -> { select('id,name,lat,lng,wave_direction,kind,city,state,country') }
   scope :newest,         -> { order(id: :desc) }

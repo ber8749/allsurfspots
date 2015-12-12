@@ -121,7 +121,7 @@ ActiveRecord::Schema.define(version: 20150930022532) do
     t.string   "locals",          default: [], array: true
     t.string   "paddle_out",      default: [], array: true
     t.string   "water_quality",   default: [], array: true
-    t.boolean  "approved"
+    t.boolean  "approved",        default: true
     t.integer  "created_by"
     t.datetime "created_at"
     t.datetime "updated_at"
