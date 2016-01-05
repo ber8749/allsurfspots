@@ -1,9 +1,5 @@
 <div class="row">
-  <% if @country %>
-    <div id="google-map" data-lat="<%= @country['latitude_dec'] %>" data-lng="<%= @country['longitude_dec'] %>"></div>
-  <% else %>
-    <div id="google-map" data-lat="0" data-lng="0"></div>
-  <% end %>
+  <div id="google-map" data-lat="<%= @country['latitude_dec'] %>" data-lng="<%= @country['longitude_dec'] %>"></div>
 </div>
 <div class="row">
   <div class="page-header">

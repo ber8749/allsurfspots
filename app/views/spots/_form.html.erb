@@ -1,9 +1,9 @@
-<%= form_for @spot, :html => { class: "form-horizontal spot" } do |f| %>
+<%= form_for @spot, html: { class: 'form-horizontal spot' } do |f| %>
 
     <% if @spot.errors.any? %>
     <div id="error_expl" class="panel panel-danger">
       <div class="panel-heading">
-        <h3 class="panel-title"><%= pluralize(@spot.errors.count, "error") %> prohibited this spot from being saved:</h3>
+        <h3 class="panel-title"><%= pluralize(@spot.errors.count, 'error') %> prohibited this spot from being saved:</h3>
       </div>
       <div class="panel-body">
         <ul>
@@ -150,6 +150,6 @@
 
   <div class="col-lg-12 text-center">
     <%= f.submit nil, class: 'btn btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")), spots_path, class: 'btn btn-default' %>
+    <%= link_to 'Cancel', spots_path, class: 'btn btn-default' %>
   </div>
 <% end %>

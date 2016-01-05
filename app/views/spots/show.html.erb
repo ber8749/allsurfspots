@@ -4,7 +4,7 @@
   <h1>
     <strong><%= @spot.name %></strong>
     <% if current_user == @spot.user %>
-      <%= link_to 'Edit', edit_spot_path(@spot), :class => 'btn btn-default' %>
+      <%= link_to 'Edit', edit_spot_path(@spot), class: 'btn btn-default' %>
     <% end %><br>
     <small><%= @spot.address %> <%= @spot.city %>, <%= @spot.state %>. <%= @spot.country %></small>
   </h1>

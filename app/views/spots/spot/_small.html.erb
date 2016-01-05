@@ -7,10 +7,10 @@
     <% if spot.images.approved.any? %>
       <%= link_to(image_tag(spot.images.approved.first.medium_thumb_url, class: 'thumb'), spot) %>
     <% else %>
-      <%= link_to(content_tag(:i, nil , class: 'fa fa-globe fa-5x'), spot) %>
+      <%= link_to(content_tag(:i, nil, class: 'fa fa-globe fa-5x'), spot) %>
     <%- end -%>
     <p><%= spot.wave_direction.to_series %> <%= spot.kind.to_series %> break</p>
     <%= rating_for(spot, 'quality', star_path: '/images') %>
   </div>
 </div>
-<%= '<div class="clearfix"></div>'.html_safe if spot_counter % 3 == 2 %>
+<%= content_tag(:div, nil, class: 'clearfix') if spot_counter % 3 == 2 %>

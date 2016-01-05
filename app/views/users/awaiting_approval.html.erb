@@ -6,9 +6,9 @@
 <h2>Spots</h2>
 <div class="table-responsive table-container">
   <table class="table table-striped">
-    <%= render partial: 'spots/spot/row', collection: @spots, as: :spot %>
+    <%= render partial: 'spots/spot/row', collection: @spots, as: :spot, locals: { approvable: true } %>
   </table>
 </div>
 
 <h2>Images</h2>
-<%= render partial: 'images/image', collection: @images %>
+<%= render partial: 'images/image', collection: @images, locals: { approvable: true } %>
